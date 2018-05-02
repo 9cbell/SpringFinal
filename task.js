@@ -20,7 +20,13 @@ const TaskExport = function(){
     //You must reference the function above to create them each time
     //make all times range from 0 to 15 and all values range from 0 to 100
     function Factory(n){
+        let list = [];
 
+        for(let a=0;a<n;a++){
+            let t = createTask(rInt(15),rInt(100));
+            list[a]=t;
+        }
+        return list;
     }
 
     //do not change anything below there!

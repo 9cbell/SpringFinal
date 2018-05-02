@@ -14,19 +14,20 @@ function totals(list){
     let totalValue = 0;
     let totalTime = 0;
 
-    for(){
-
+    for(a=0;a<list.length;a++){
+        totalValue=list[a].value+totalValue;
+        totalTime=list[a].time+totalTime;
     }
 
     return {
-
+        totalValue, totalTime
     }
 }
 
 //works the the same as above, but stops short at the kth number in the list
 function partialTotals(list,k){
 
-
+for(a=0;a<list.length;a++)
 
 }
 
