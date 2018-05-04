@@ -6,8 +6,8 @@ const TaskExport = function(){
     function createTask(v,t){
 
         return{
-          time:t;
-          cost:c;
+          time:t,
+          value:v
         }
     }
 

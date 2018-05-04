@@ -3,8 +3,8 @@ const importTask = require("./task.js");
 const Task = new importTask();
 
 /*
-    If you want to create a task type....... Task.createTask()
-    If you want to create a list of task objects type......Task.Factory()
+If you want to create a task type....... Task.createTask()
+If you want to create a list of task objects type......Task.Factory()
 */
 
 
@@ -14,7 +14,7 @@ function totals(list){
     let totalValue = 0;
     let totalTime = 0;
 
-    for(a=0;a<list.length;a++){
+    for(let a=0;a<list.length;a++){
         totalValue=list[a].value+totalValue;
         totalTime=list[a].time+totalTime;
     }
@@ -26,15 +26,19 @@ function totals(list){
 
 //works the the same as above, but stops short at the kth number in the list
 function partialTotals(list,k){
-if (k<list.length) {
+    if (k<list.length) {
+        let totalValue = 0;
+        let totalTime = 0;
+        for(let a=0;a<k;a++){
+            totalValue=list[a].value+totalValue;
+            totalTime=list[a].time+totalTime;
+        }
 
-  for(a=0;a<k;a++){}
+        return{
+            totalValue,totalTime
+        }
 
-  return{
-    totalValue,totalTime
-  }
-
-}
+    }
 
 }
 
@@ -44,17 +48,17 @@ function sortTime(list){
 
     //provide the criteria to sort the tasks.  They are objects remember.
     return list.sort(function(a, b) {
-  return a.time - b.time;
-});
+        return a.time - b.time;
+    });
 
 }
 
 //returns a sorted version of the task list from least to greatest according to its value variable
 function sortValue(list){
 
-return list.sort(function(a, b) {
-return a.value - b.value;
-});
+    return list.sort(function(a, b) {
+        return a.value - b.value;
+    });
 
 }
 
@@ -64,10 +68,11 @@ function sortImpact(list){
 
     //create a function which returns the impact of a given task
     function impact(task){
-return task.value*(1/task.time)
+        return task.value*(1/task.time)
+    }
     //finishes the sort
-  return list.sort(function(a, b) {
-    return impact(a) - impact(b);
+    return list.sort(function(a, b) {
+        return impact(a) - impact(b);
     });
 
 }
@@ -94,4 +99,4 @@ function mainTest(n){
     console.log(partialTotals(maxImpact, n/4));
 }
 
-mainTest(60);
+mainTest(10);
